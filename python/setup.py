@@ -83,7 +83,7 @@ setup(
         Extension("_fastrpc", [
             "fastrpcmodule.cc", "pythonserver.cc", "pyerrors.cc",
             "pythonbuilder.cc", "pythonfeeder.cc"
-        ], libraries=["fastrpc"]),
+        ], libraries=["fastrpc"], include_dirs=['../src']),
     ],
     test_suite='test'
 )
