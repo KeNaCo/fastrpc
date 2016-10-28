@@ -70,6 +70,10 @@ version = str(Changelog(open(changelog, 'rt')).get_version())
 author = u"Miroslav Talášek"
 author_email = "miroslav.talasek@firma.seznam.cz"
 
+FASTRPC_MAJOR = 8
+FASTRPC_MINOR = 0
+FASTRPC_VERSION = '{}.{}'.format(FASTRPC_MAJOR, FASTRPC_MINOR)
+
 setup(
     name="fastrpc",
     version=version,
@@ -83,7 +87,10 @@ setup(
         Extension("_fastrpc", [
             "fastrpcmodule.cc", "pythonserver.cc", "pyerrors.cc",
             "pythonbuilder.cc", "pythonfeeder.cc"
-        ], libraries=["fastrpc"], include_dirs=['../src']),
+        ], libraries=["fastrpc"], include_dirs=['../src'],
+        define_macros=[("FASTRPC_MAJOR", FASTRPC_MAJOR),
+                       ("FASTRPC_MINOR", FASTRPC_MINOR),
+                       ("FASTRPC_VERSION", FASTRPC_VERSION)]),
     ],
     test_suite='test'
 )

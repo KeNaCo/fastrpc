@@ -56,7 +56,9 @@
 #include <frpctypeerror.h>
 #include <frpcindexerror.h>
 #include <frpcstreamerror.h>
+#if !defined(FASTRPC_MAJOR) || !defined(FASTRPC_MINOR) || !defined(FASTRPC_VERSION)
 #include <frpcversion.h>
+#endif
 
 #include <string>
 #include <bitset>
